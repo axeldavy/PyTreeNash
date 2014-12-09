@@ -77,6 +77,38 @@ class Tree(object):
         
     # TODO: add iterators to go down the tree and go back from leaves to root.
 
-class TreeNash(object):
+class TreeNashBase(object):
     def __init__(self, tree):
-        self.tree = tree
+        self.tree = tree;
+
+    def downstream_pass():
+        for node in self.tree.bottom_to_top:
+            parents = self.links_bottom_top[node];
+            assert (len(parents) <= 1); # we are in a tree
+            children =  self.links_top_bottom[node];
+            if (len(children) == 0): # leaf
+                #TODO
+            else:
+                #TODO
+            if (len(parents) == 0):
+                assert (node == 0); # root
+                break; # nothing to do
+            p = parents[0];
+            #TODO: transmit result to parent
+
+    def upstream_pass():
+        for node in self.tree.top_to_bottom:
+            children =  self.links_top_bottom[node];
+            if (len(children) == 0): # leaf
+                #NOTHING TODO?
+            else:
+                #TODO
+
+
+class TreeNashApproximate(TreeNashBase):
+    def __init__(self, tree):
+        TreeNashBase.__init__(tree);
+
+class TreeNashExact(TreeNashBase):
+    def __init__(self, tree):
+        TreeNashBase.__init__(tree);
